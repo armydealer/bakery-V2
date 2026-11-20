@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+  --color-canvas: #FAF8F5;
+  --color-surface: #FFFFFF;
+  --color-border-warm: #EAE2D8;
+  --color-espresso: #2B1E1A;
+  --color-pistachio: #2D6A4F;
+  --color-pistachio-tint: #ECFDF5;
+  --color-saffron: #D97706;
+  --color-saffron-tint: #FFFBEB;
+  --color-terracotta: #C84B31;
+  --color-terracotta-tint: #FEF2F2;
+  --color-indigo-sci: #4338CA;
+  --color-indigo-tint: #EEF2FF;
+}
+
+@layer base {
+  html, body {
+    font-family: "Vazirmatn", ui-sans-serif, system-ui, Tahoma, sans-serif;
+    background-color: #FAF8F5;
+    color: #2B1E1A;
+  }
+
+  svg text, .recharts-text, .recharts-cartesian-axis-tick-value, .recharts-legend-item-text {
+    font-family: "Vazirmatn", ui-sans-serif, system-ui, Tahoma, sans-serif !important;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    opacity: 0.6;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.privacy-blur {
+  filter: blur(7px);
+  user-select: none;
+  pointer-events: none;
+  transition: filter 150ms ease;
+}
+
+/* Custom subtle warm scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EFE8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D7CBBF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8A898;
+}
+
+/* Clean A4 RTL Print Stylesheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #1A1412 !important;
+    direction: rtl !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-page-break {
+    break-before: page;
+    page-break-before: always;
+  }
+}
